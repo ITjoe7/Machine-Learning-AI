@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>METanong</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='imgs/style.css') }}">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link rel="icon" href="{{ url_for('static', filename='imgs/icon1.ico') }}" type="image/x-icon">
+</head>
+
+<body>
+
+  <aside class="sidebar">
+    <a href="{{ url_for('about') }}" class="show-about-btn">
+      <i class="bi bi-info-circle"></i> About
+    </a>
+    <button class="clear-conversation-btn" onclick="clearConversation()">
+      <i class="bi bi-trash"></i> Clear Conversation
+    </button>
+  </aside>  
+
+  <header class="msger-header">
+    <div class="logo-header">
+      <a href="img-logo"><img src="/static/imgs/logo1.png"></a>
+    </div>
+  </header>
+
+  <section class="msger">
+    <main class="msger-chat">
+      <div class="msg left-msg">
+        <div class="msg-img">
+          <img class="img-logo" src="{{ url_for('static', filename='imgs/chatbot.png') }}">
+        </div>
+        <div class="msg-bubble">
+          <div class="msg-info">
+            <div class="msg-info-name">METanongBot
+            </div>
+            <div class="msg-info-time"></div>
+          </div>
+          <div class="msg-text">
+            Hi, I'm Metanong, your personal assistant for Mets Logistics Data Exploration. Send your message. 😄
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <form class="msger-inputarea" id="messageForm">
+      <input type="text" class="msger-input" id="textInput" placeholder="Enter your message...">
+      <button type="submit" class="msger-send-btn"><i class="bi bi-send"></i></button>
+    </form>
+  </section>
+
+  <script src='https://use.fontawesome.com/releases/v5.0.13/js/all.js'></script>
+  <script>
+    const msgerForm = document.getElementById("messageForm");
+    const msgerInput = document.getElementById("textInput");
+    const msgerChat = document.querySelector(".msger-chat");
+  
+    msgerForm.addEventListener("submit", event => {
+      event.preventDefault();
+      const msgText = msgerInput.value.trim();
+      if (!msgText) return;
+      appendMessage("You", "right", msgText);
+      msgerInput.value = "";
+      botResponse(msgText);
+    });
+  
+    msgerInput.addEventListener("keydown", event => {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        msgerForm.dispatchEvent(new Event("submit"));
+      }
+    });
+  
+    function appendMessage(name, side, text) {
+      const msgHTML = `
+        <div class="msg ${side}-msg">
+          ${side === 'left' ? '<div class="msg-img"><img class="img-logo" src="{{ url_for('static', filename='imgs/chatbot.png') }}"></div>': ''}
+          <div class="msg-bubble">
+            <div class="msg-info">
+              <div class="msg-info-name">${name}</div>
+              <div class="msg-info-time">${formatDate(new Date())}</div>
+            </div>
+            <div class="msg-text">${text}</div>
+          </div>
+      `;
+      msgerChat.insertAdjacentHTML("beforeend", msgHTML);
+      msgerChat.scrollTop += 500;
+    }
+  
+    function speakText(text) {
+      const speech = new SpeechSynthesisUtterance();
+      speech.text = text;
+      window.speechSynthesis.speak(speech);
+    }
+  
+    function botResponse(rawText) {
+      $.post("/get", { msg: rawText }).done(function (data) {
+        const msgText = data;
+        appendMessage("METanongBot", "left", msgText);
+        speakText(msgText);
+      });
+    }
+  
+    function formatDate(date) {
+      const h = "0" + date.getHours();
+      const m = "0" + date.getMinutes();
+      return `${h.slice(-2)}:${m.slice(-2)}`;
+    }
+  
+    function clearConversation() {
+      location.reload();
+    }
+  </script>  
+
+</body>
+
+</html>

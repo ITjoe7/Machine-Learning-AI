@@ -1,0 +1,217 @@
+{
+    "intents": [
+        {
+            "tag": "greetings",
+            "patterns": ["hi there", 
+                         "hello", 
+                         "hey", 
+                         "good day!"],
+            "responses": ["Hello! How can I assist you today?", 
+                          "Hi there! How can I help you?", 
+                          "Hey! What can I do for you?"],
+            "context": [""]
+        },
+        {
+            "tag": "goodbye",
+            "patterns": ["bye", 
+                         "see you later", 
+                         "farewell"],
+            "responses": ["Goodbye! Have a great day!", 
+                          "See you later! Take care!", 
+                          "Farewell! Come back anytime!"],
+            "context": [""]
+        },
+        {
+            "tag": "thanks",
+            "patterns": ["thanks", 
+                         "thank you", 
+                         "appreciate it"],
+            "responses": ["You're welcome! Let me know if you need anything else.", 
+                          "Glad I could assist! Feel free to ask if you have more questions.", 
+                          "No problem! If you need further assistance, just ask!"],
+            "context": [""]
+        },
+        {
+            "tag": "noanswer",
+            "patterns": [""],
+            "responses": ["Sorry, I didn't understand that. Could you please provide more information related to Mets Logistics?"],
+            "context": [""]
+        },
+        {
+            "tag": "name_inquiry",
+            "patterns": ["what's your name?", 
+                         "who are you?"],
+            "responses": ["I'm an AI chatbot designed to assist you. You can call me METanong.", 
+                          "My name is METanong. How can I assist you?"],
+            "context": [""]
+        },
+        {
+            "tag": "name_declaration",
+            "patterns": ["my name is", 
+                         "I'm", 
+                         "I am"],
+            "responses": ["Nice to meet you! How can I assist you?", 
+                          "Hello, How can I help you today?"],
+            "context": [""]
+        },
+        {
+            "tag": "about_robot",
+            "patterns": ["what are you?"],
+            "responses": ["I'm an artificial intelligence designed to assist with various tasks and provide information.", 
+                          "I'm an AI chatbot created to help users with their queries and tasks."],
+            "context": [""]
+        },
+        {
+            "tag": "compliment",
+            "patterns": ["you're great",
+                         "awesome", 
+                         "amazing"],
+            "responses": ["Thank you! I'm here to help.", 
+                          "That's very kind of you! Let me know if there's anything else I can do for you."],
+            "context": [""]
+        },
+        {
+            "tag": "assistance_preference",
+            "patterns": ["can you help me?", 
+                         "need assistance"],
+            "responses": ["Of course! What do you need help with?", 
+                          "Sure! I'm here to assist you. What do you need help with?"],
+            "context": [""]
+        },
+        {
+            "tag": "apology",
+            "patterns": ["sorry", 
+                         "apologies"],
+            "responses": ["No problem! Let me know how I can assist you.", 
+                          "No need to apologize! How can I assist you today?"],
+            "context": [""]
+        },
+        {
+            "tag": "company_info",
+            "patterns": ["Tell me about Mets Logistics",
+                        " Tell me about this company", 
+                         "What is mets logistics?", 
+                         "what does Mets Logistics do?", 
+                         "Can you provide information about Mets Logistics?"],
+            "responses": ["Mets Logistics, Inc. is a leading provider of cold and dry storage solutions in the Philippines. We specialize in warehousing and toll processing of meat products, ensuring quality, safety, and reliable service for our clients."],
+            "context": [""]
+        },
+        {
+            "tag": "founder_info",
+            "patterns": ["who founded Mets Logistics?", 
+                         "who is the CEO of Mets Logistics?"],
+            "responses": ["Mets Logistics inc. was founded by Mr. Eduard Tio in the year 2010."],
+            "context": [""]
+        },
+        {
+            "tag": "offerings",
+            "patterns": ["what services does Mets Logistics offer?", 
+                         "what are the products of Mets Logistics?", 
+                         "Does Mets Logistics have its own products?",
+                         "service of mets logistics?"],
+            "responses": ["Mets Logistics specializes in providing Cold and Dry storage facilities, Blast Freezing, and Toll Processing services. While we do not have personal products, we offer comprehensive solutions for storage and processing needs."],
+            "context": [""]
+        },
+        {
+            "tag": "location_info",
+            "patterns": ["where is Mets Logistics located?", 
+                         "what are the locations of Mets Logistics?"],
+            "responses": ["Mets Logistics has headquarters in Cavite, Cebu, and Cagayan De Oro, with multiple facilities in each region."],
+            "context": [""]
+        },
+        {
+            "tag": "website",
+            "patterns": ["What is the website of Mets Logistics?", 
+                         "Can you provide the website link of Mets Logistics?", 
+                         "Where can I find the website of Mets Logistics?"],
+            "responses": ["You can visit the official website of Mets Logistics at https://metslogistics.com/Home/Facilities for more information."],
+            "context": [""]
+        },
+        {
+            "tag": "mission",
+            "patterns": ["what is the mission of Mets Logistics?"],
+            "responses": ["To help maximize your potential business growth and development by delivering the quality and care that your customers deserve through our cold and dry storage solutions."],
+            "context": [""]
+        },
+        {
+            "tag": "vision",
+            "patterns": ["what is the vision of Mets Logistics?"],
+            "responses": ["To be the preferred cold and dry storage provider of businesses in the Philippines."],
+            "context": [""]
+        },
+        {
+            "tag": "accreditation",
+            "patterns": ["Is Mets Logistics accredited?", "Does Mets Logistics have any accreditations?"],
+            "responses": ["Yes, Mets Logistics is Accredited by: NMIS, BFAR, BPI, FDA, GMP, GOP, HACCP, IDCP, ISO 9001:2915, and NSF."],
+            "context": [""]
+        },
+        {
+            "tag": "total_storage",
+            "patterns": [
+                "What is the total STORAGECOLD in inbound?", 
+                "What is the total STORAGEDRY in inbound?", 
+                "What is the total STORAGECHILLER in inbound?", 
+                "What is the total STORAGEAIRCON in inbound?", 
+                "What is the total STORAGECOLD in outbound?", 
+                "What is the total STORAGEDRY in outbound?", 
+                "What is the total STORAGECHILLER in outbound?", 
+                "What is the total STORAGEAIRCON in outbound?"
+            ],
+            "responses": ["The total {STORAGE_TYPE} is {TOTAL_COUNT}."],
+            "context": ["total_storage"]
+        },
+        {
+            "tag": "total_inbound_outbound",
+            "patterns": [
+                "What is the total Arrival inbound?", 
+                "What is the total Departure inbound?", 
+                "What is the total StartUnload inbound?", 
+                "What is the total ICNTotalQty inbound?", 
+                "What is the total CompleteUnload inbound?", 
+                "What is the total StorageType inbound?", 
+                "What is the total Supplier inbound?", 
+                "What is the total ArrivalTime outbound?", 
+                "What is the total DepartureTime outbound?", 
+                "What is the total StartLoading outbound?", 
+                "What is the total CompleteLoading outbound?", 
+                "What is the total TotalQty outbound?", 
+                "What is the total StorageType outbound?",
+                "What is the total Supplier?",
+                "What is the total SubmittedBy?",
+                "What is the total PostedBy?",
+                "What is the total ApprovedBy?",
+                "What is the total RejectBy?",
+                "What is the total CheckedBy?",
+                "What is the total CancelledBy?",
+                "What is the total DocumentBy?",
+                "What is the total PutAwayBy?",
+                "What is the total AddedBy?",
+                "What is the total LastEditedBy?",
+                "What is the total AcceptBy?",
+                "What is the total RFPutAwayBy?",
+                "What is the total CheckedBy?",
+                "What is the total AuthorizedBy?",
+                "What is the total SuppliedBy?"
+            ],
+            "responses": ["The total {CATEGORY} is {TOTAL_COUNT}."],
+            "context": ["total_inbound_outbound"]
+        },
+        {
+            "tag": "facility_location",
+            "patterns": [
+                "Where are Mets Logistics facilities located in Cavite?", 
+                "Where specifically in Cavite?",
+                "Where are Mets Logistics facilities in Cebu?", 
+                "Where specifically in Cebu?",
+                "Where are Mets Logistics facilities in Cagayan de Oro?", 
+                "Where specifically in Cagayan de Oro?"
+            ],
+            "responses": [
+                "Mets Logistics has facilities in Bancal, Maguyam, and Banahaw Carmona in Cavite.",
+                "Mets Logistics has facilities in Mandaue, Cebu City.",
+                "Mets Logistics has facilities in Tablon, Cagayan de Oro City."
+            ],
+            "context": ["facility_location"]
+        }
+        ]
+    }        
