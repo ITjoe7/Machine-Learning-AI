@@ -40,4 +40,4 @@ Project Deliverables:
 5. Ongoing Support and Maintenance Services
 
 ## Photo
-![User Interface](imgs/interface.png)
+![User Interface](static/imgs/interface.png)
