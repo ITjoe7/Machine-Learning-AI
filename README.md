@@ -1,4 +1,3 @@
-"# Machine Learning AI Project" 
 Project Description: Chatbot for Mets Logistics Inc
 
 Overview:
